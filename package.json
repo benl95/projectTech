@@ -1,0 +1,26 @@
+{
+  "name": "featuredatingapp",
+  "version": "1.0.0",
+  "description": "feature voor de dating app voor project tech",
+  "main": ".mongorc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benl95/projectTech.git"
+  },
+  "keywords": [
+    "feature",
+    "music",
+    "playlist",
+    "dating",
+    "application"
+  ],
+  "author": "Ben Langenberg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benl95/projectTech/issues"
+  },
+  "homepage": "https://github.com/benl95/projectTech#readme"
+}
