@@ -22,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/benl95/projectTech/issues"
   },
-  "homepage": "https://github.com/benl95/projectTech#readme"
+  "homepage": "https://github.com/benl95/projectTech#readme",
+  "dependencies": {
+    "camelcase": "^5.3.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
 }
