@@ -26,7 +26,8 @@
   "homepage": "https://github.com/benl95/projectTech#readme",
   "dependencies": {
     "camelcase": "^5.3.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "handlebars": "^4.7.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
