@@ -12,24 +12,3 @@ body {
     font-family: Helvetica;
     font-size: 1rem;
 }
-
-ul {
-    list-style: none;
-}
-
-#profile-picture {
-    background-image: url(../css/images/kim.jpeg);
-    height: 25rem;
-}
-
-#personal-info {
-    margin: 1rem;
-}
-
-#bio {
-    margin-bottom: 1rem;
-}
-
-#bio h2 {
-    font-size: 16px;
-}
