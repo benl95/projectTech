@@ -1,6 +1,6 @@
 html,
 body {
-    background: blue;
+    background: white;
     max-width: 100%;
 }
 
@@ -17,7 +17,19 @@ ul {
     list-style: none;
 }
 
-#profile {
+#profile-picture {
     background-image: url(../css/images/kim.jpeg);
     height: 25rem;
+}
+
+#personal-info {
+    margin: 1rem;
+}
+
+#bio {
+    margin-bottom: 1rem;
+}
+
+#bio h2 {
+    font-size: 16px;
 }
