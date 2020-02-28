@@ -1,3 +1,23 @@
+html,
 body {
     background: blue;
+    max-width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+    font-size: 1rem;
+}
+
+ul {
+    list-style: none;
+}
+
+#profile {
+    background-image: url(../css/images/kim.jpeg);
+    height: 25rem;
 }
