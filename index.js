@@ -8,6 +8,7 @@ app.engine('handlebars', expbs({
     defaultLayout: 'main',
     layoutsDir: path.join(__dirname, 'views/layouts')
 }));
+
 app.set('view engine', 'handlebars');
 
 // Static folders 
@@ -30,6 +31,13 @@ app.get('/form', (req, res) => {
     res.render('form', {
         title: 'Movie form'
     });
+});
+
+app.get('/mp3', (req, res) => {
+    res.render('mp3', {
+        title: 'Mp3 file'
+    });
+    res.download('public/sample.mp3')
 });
 
 app.listen(8080, () => {
