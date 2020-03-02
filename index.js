@@ -34,10 +34,8 @@ app.get('/form', (req, res) => {
 });
 
 app.get('/mp3', (req, res) => {
-    res.render('mp3', {
-        title: 'Mp3 file'
-    });
-    res.download('public/sample.mp3')
+    res.sendFile(path.join(__dirname,
+        'public', 'sample.mp3'));
 });
 
 app.listen(8080, () => {
