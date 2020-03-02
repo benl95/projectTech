@@ -26,6 +26,12 @@ app.get('/playlist', (req, res) => {
     });
 });
 
+app.get('/form', (req, res) => {
+    res.render('form', {
+        title: 'Movie form'
+    });
+});
+
 app.listen(8080, () => {
     console.log('Server is starting on port ', 8080);
 });
