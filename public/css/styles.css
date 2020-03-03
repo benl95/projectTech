@@ -9,3 +9,65 @@ body {
     font-family: Helvetica;
     font-size: 1rem;
 }
+
+/* Profile info */
+
+#profile-info {}
+
+ul {
+    list-style: none;
+}
+
+/* Like and dislike navigation */
+
+footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 1rem;
+    width: 100%;
+    height: 4rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+button {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    border: solid 1px lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgrey;
+}
+
+button:focus {
+    outline: none;
+    border: none;
+}
+
+.like-button,
+.dislike-button {
+    margin-right: 1rem;
+}
+
+.like-button {
+    font-size: 3rem;
+    color: white;
+    background-color: green;
+    opacity: 90%;
+}
+
+.dislike-button {
+    font-size: 2rem;
+    color: white;
+    background-color: red;
+    opacity: 90%;
+}

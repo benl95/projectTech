@@ -39,5 +39,5 @@ app.get('/mp3', (req, res) => {
 });
 
 app.listen(8080, () => {
-    console.log('Server is starting on port ', 8080);
+    console.log('Server is starting on port', 8080);
 });
