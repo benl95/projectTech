@@ -38,6 +38,10 @@ app.get('/mp3', (req, res) => {
         'public', 'sample.mp3'));
 });
 
+app.get('/profile/:id', (req, res) => {
+    res.send('You requested to see the profile of ' + req.params.id);
+});
+
 app.listen(8080, () => {
     console.log('Server is starting on port', 8080);
 });
