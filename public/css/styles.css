@@ -1,3 +1,5 @@
+/* Standard styles */
+
 html,
 body {
     background-color: white;
@@ -18,7 +20,7 @@ ul {
     list-style: none;
 }
 
-/* Like and dislike navigation */
+/* Like and dislike footer */
 
 footer {
     position: absolute;
