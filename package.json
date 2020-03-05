@@ -2,7 +2,7 @@
   "name": "featuredatingapp",
   "version": "1.0.0",
   "description": "feature voor de dating app voor project tech",
-  "main": ".mongorc.js",
+  "main": "index.js",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -28,7 +28,7 @@
   "homepage": "https://github.com/benl95/projectTech#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "camelcase": "^5.3.1",
+    "camelcase": "^5.w3.1",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0"
   },
