@@ -12,6 +12,30 @@ body {
     font-size: 1rem;
 }
 
+ul {
+    list-style: none;
+}
+
+/* Navigation */
+
+.navigation {
+    border: 1px solid lightgrey;
+    height: 5rem;
+}
+
+.navigation ul {
+    display: flex;
+    flex-direction: row;
+}
+
+i {
+    font-size: 2.5rem;
+}
+
+header a {
+    text-decoration: none;
+}
+
 /* Profile info */
 
 .image-wrapper {
@@ -47,13 +71,7 @@ body {
     font-weight: normal;
 }
 
-/* Spotify playlist */
-
-ul {
-    list-style: none;
-}
-
-/* Like and dislike footer */
+/* Like and dislike navigation */
 
 footer {
     position: absolute;
