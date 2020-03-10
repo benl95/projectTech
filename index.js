@@ -42,7 +42,7 @@ app.get('/playlist', (req, res) => {
 app.post('/playlist', (req, res) => {
     // res.end(JSON.stringify(req.body));
     console.log(req.body);
-    res.render('/playlist-added', {
+    res.render('playlist-added', {
         data: req.body
     });
 });
