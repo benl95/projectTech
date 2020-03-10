@@ -19,46 +19,56 @@ ul {
 /* Navigation */
 
 .navigation {
-    border: 1px solid lightgrey;
-    height: 5rem;
+    height: 4.5rem;
 }
 
 .navigation ul {
     display: flex;
-    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: silver;
 }
 
 i {
     font-size: 2.5rem;
 }
 
-header a {
-    text-decoration: none;
-}
-
 /* Profile info */
 
 .image-wrapper {
-    width: 100%;
+    width: 80%;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#profile-info {
+    margin-top: .3rem;
 }
 
 #profile-info img {
     height: 32rem;
     width: 100%;
+    border-radius: 15px;
 }
 
 .overlay {
     display: block;
-    position: fixed;
+    position: absolute;
     color: white;
-    bottom: 9.7rem;
+    bottom: 0.2rem;
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.5);
     padding-left: 1rem;
-    width: 100%;
+    width: 96%;
     height: 6.5rem;
     opacity: .8;
+    border-radius: 0px 0px 15px 15px;
 }
 
 .overlay h1 {
@@ -83,17 +93,15 @@ footer {
     height: 4rem;
 }
 
-nav {
+.footer-nav {
     display: flex;
-    justify-content: space-around;
-    align-content: center;
-
+    justify-content: space-evenly;
 }
 
 button {
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border: solid 1px lightgray;
     display: flex;
     justify-content: center;
