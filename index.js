@@ -23,13 +23,7 @@ app.get('/', (req, res) => {
 
 app.get('/playlist', (req, res) => {
     res.render('playlist', {
-        title: 'Results'
-    });
-});
-
-app.get('/form', (req, res) => {
-    res.render('form', {
-        title: 'Movie form'
+        title: 'Your playlist'
     });
 });
 
