@@ -11,10 +11,14 @@ require('dotenv').config()
 // MongoDB connection setup
 async function main() {
 
-    const uri = 'mongodb+srv://admin:' + process.env.DB_PASS '@projecttech-a3phf.mongodb.net/test';
+    const uri = 'mongodb+srv://admin:' + process.env.DB_PASS + '@projecttech-a3phf.mongodb.net/test'
 
 
-    const client = new MongoClient(uri);
+    const client = new
+    MongoClient(uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
 
     try {
         // Connect to the MongoDB cluster
