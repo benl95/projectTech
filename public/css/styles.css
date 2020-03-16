@@ -1,84 +1,23 @@
-/* Standard styles */
+/* Remove padding and margin */
 
-html,
-body {
-    background-color: ghostwhite;
-    max-width: 100%;
+* {
     margin: 0;
     padding: 0;
     border: 0;
-    box-sizing: border-box;
-    font-family: Helvetica;
-    font-size: 1rem;
-}
-
-ul {
-    list-style: none;
 }
 
 /* Navigation */
 
-.navigation {
-    height: 4.5rem;
-}
-
-.navigation ul {
-    display: flex;
-    justify-content: flex-start;
-    margin: 0;
-    padding: 0;
-}
-
-.navigation a {
+.profile a {
     text-decoration: none;
     color: silver;
-}
-
-i {
     font-size: 2.5rem;
 }
 
-/* Profile info */
-
-.image-wrapper {
-    width: 80%;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#profile-info {
-    margin-top: .3rem;
-}
-
-#profile-info img {
-    height: 32rem;
-    width: 100%;
-    border-radius: 15px;
-}
-
-.overlay {
-    display: block;
-    position: absolute;
-    color: white;
-    bottom: 0.2rem;
-    background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.5);
-    padding-left: 1rem;
-    width: 96%;
-    height: 6.5rem;
-    opacity: .8;
-    border-radius: 0px 0px 15px 15px;
-}
-
-.overlay h1 {
-    font-size: 1.5rem;
-}
-
-.overlay h2 {
-    font-size: 1rem;
-    line-height: .1rem;
-    font-weight: normal;
+.home a {
+    text-decoration: none;
+    font-size: 22px;
+    color: #50AA49;
 }
 
 /* Like and dislike navigation */
