@@ -124,13 +124,17 @@ article {
     margin-top: 2rem;
     width: 20rem;
     height: 3rem;
-    font-family: 'Roboto';
     border-radius: 25px;
     background-color: #1DB954;
-    color: white;
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.playlist-button a {
+    font-family: 'Roboto';
     font-weight: 300;
     font-size: 14px;
-    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+    color: white;
+    text-decoration: none;
 }
 
 /* Like and dislike navigation */
@@ -303,7 +307,7 @@ table {
 
 table th {
     text-align: left;
-    border-bottom: 1px solid #97A796;
+    border-bottom: 1px solid #D1D1D1;
     padding-left: 1rem;
     padding-bottom: .3rem;
     color: #50AA49;
@@ -311,7 +315,7 @@ table th {
 }
 
 table td {
-    border-bottom: 1px solid #97A796;
+    border-bottom: 1px solid #D1D1D1;
 }
 
 table th:nth-child(2) {
@@ -328,4 +332,29 @@ table td:first-child {
     padding-bottom: 1rem;
     padding-top: 1rem;
     padding-left: 1rem;
+}
+
+/* Playlist header */
+
+.playlist-header h1,
+h2 {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.playlist-header h2 {
+    font-size: 19px;
+    color: #50AA49;
+    font-weight: 300;
+}
+
+.playlist-card {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+    height: 24rem;
+    margin: 1rem 1rem 0 1rem;
+    background-color: #FFFFFF;
+    border: 1px solid #EBEBEB;
+    border-radius: 10px;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }

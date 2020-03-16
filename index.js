@@ -72,6 +72,13 @@ app.get('/', (req, res) => {
     });
 });
 
+// Routing view playlist user {
+app.get('/view-playlist', (req, res) => {
+    res.render('view-playlist', {
+        title: 'Playlist'
+    });
+});
+
 // Routing playlist 
 app.get('/playlist', (req, res) => {
     res.render('playlist', {
