@@ -190,8 +190,14 @@ footer button:focus {
     display: flex;
 }
 
+.playlistNav li:nth-child(1) {
+    align-self: center;
+}
+
 .playlistNav li:nth-child(2) {
     margin-left: 1rem;
+    flex-grow: 2;
+    align-self: center;
 }
 
 .playlistNav a {
@@ -207,6 +213,21 @@ footer button:focus {
     border-bottom: 2px solid #50AA49;
 }
 
+.playlistNav {
+    margin-right: 1rem;
+}
+
+.playlistNav button {
+    width: 3rem;
+    height: 2rem;
+    border-radius: 25px;
+    background-color: #1DB954;
+    color: white;
+    font-family: -apple-system-headine, BlinkMacSystemFont, sans-serif;
+    font-weight: 100;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    outline: none;
+}
 
 /* Playlist form styles */
 
@@ -267,4 +288,44 @@ label {
 
 #add:focus {
     outline: none;
+}
+
+/* Table styles */
+
+table {
+    margin-top: 2rem;
+    width: 100%;
+    border-spacing: 0;
+    font-family: -apple-system-headine, BlinkMacSystemFont, sans-serif;
+    font-weight: 100;
+    font-size: 13px;
+}
+
+table th {
+    text-align: left;
+    border-bottom: 1px solid #97A796;
+    padding-left: 1rem;
+    padding-bottom: .3rem;
+    color: #50AA49;
+    font-weight: 100;
+}
+
+table td {
+    border-bottom: 1px solid #97A796;
+}
+
+table th:nth-child(2) {
+    padding-left: 5rem;
+}
+
+table td:nth-child(2) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 5rem;
+}
+
+table td:first-child {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
 }
