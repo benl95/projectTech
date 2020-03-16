@@ -72,17 +72,17 @@ app.get('/', (req, res) => {
     });
 });
 
-// Routing playlist
-app.get('/playlist', (req, res) => {
-    res.render('playlist', {
-        title: 'Your playlist'
+// Routing songs
+app.get('/songs', (req, res) => {
+    res.render('songs', {
+        title: 'Add songs to your playlist'
     });
 });
 
 // POST method playlist
-app.post('/playlist', (req, res) => {
+app.post('/songs', (req, res) => {
     console.log(req.body);
-    res.render('playlist-added', {
+    res.render('songs-added', {
         data: req.body
     });
 });

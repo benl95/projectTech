@@ -1,12 +1,17 @@
 <body>
     {{> header}}
+    <nav class="playlistNav">
+        <ul>
+            <li><a href='#'>Playlist</a></li>
+            <li><a href='#'>Add songs</a></li>
+        </ul>
+    </nav>
     <form action="/playlist" method="POST">
         <div class="form-card">
             <label for='songName'>Song name</label>
             <input type='text' name='songName'>
             <label for='artistName'>Artist name</label>
             <input type='text' name='artistName'>
-            <div class="dynamicInput"></div>
             <input type='button' value='&#43;' id='add'>
             <input type='submit' value="Add songs">
         </div>

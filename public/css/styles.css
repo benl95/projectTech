@@ -178,6 +178,35 @@ footer button:focus {
     background-color: #E26B6B;
 }
 
+/* Playlist nav */
+
+.playlistNav {
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.playlistNav ul {
+    list-style: none;
+    display: flex;
+}
+
+.playlistNav li:nth-child(2) {
+    margin-left: 1rem;
+}
+
+.playlistNav a {
+    text-decoration: none;
+    color: black;
+    font-family: -apple-system-headine, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding-bottom: .3rem;
+}
+
+.playlistNav a:hover {
+    border-bottom: 2px solid #50AA49;
+}
+
 /* Playlist form styles */
 
 .form-card {
