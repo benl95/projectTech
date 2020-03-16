@@ -216,7 +216,7 @@ label {
 }
 
 .form-card input[type=submit] {
-    margin-top: 5rem;
+    margin-top: 1rem;
     width: 12rem;
     height: 3rem;
     font-family: 'Roboto';
@@ -227,4 +227,14 @@ label {
     font-size: 14px;
     box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
     align-self: center;
+}
+
+#add {
+    background-color: white;
+    font-size: 3rem;
+    color: #B9B9B9;
+}
+
+#add:focus {
+    outline: none;
 }
