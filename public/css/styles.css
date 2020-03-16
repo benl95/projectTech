@@ -48,7 +48,7 @@ header {
 }
 
 .home {
-    margin-left: 3.7rem;
+    margin-left: 3.4rem;
 }
 
 .home a {
@@ -103,13 +103,11 @@ button:focus {
 .like-button {
     font-size: 3rem;
     color: white;
-    background-color: green;
-    opacity: 90%;
+    background-color: #4A933D;
 }
 
 .dislike-button {
     font-size: 2rem;
-    color: red;
-    background-color: lightgrey;
-    opacity: 90%;
+    color: white;
+    background-color: #E26B6B;
 }
