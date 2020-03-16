@@ -203,9 +203,10 @@ footer button:focus {
     padding-bottom: .3rem;
 }
 
-.playlistNav a:hover {
+.playlistNav .current {
     border-bottom: 2px solid #50AA49;
 }
+
 
 /* Playlist form styles */
 

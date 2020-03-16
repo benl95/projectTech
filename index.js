@@ -72,6 +72,13 @@ app.get('/', (req, res) => {
     });
 });
 
+// Routing playlist 
+app.get('/playlist', (req, res) => {
+    res.render('playlist', {
+        title: 'Your playlist'
+    });
+});
+
 // Routing songs
 app.get('/songs', (req, res) => {
     res.render('songs', {
@@ -79,7 +86,7 @@ app.get('/songs', (req, res) => {
     });
 });
 
-// POST method playlist
+// POST method songs
 app.post('/songs', (req, res) => {
     console.log(req.body);
     res.render('songs-added', {

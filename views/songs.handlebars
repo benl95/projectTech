@@ -1,12 +1,12 @@
-<body>
+<body class='songs'>
     {{> header}}
     <nav class="playlistNav">
         <ul>
-            <li><a href='#'>Playlist</a></li>
-            <li><a href='#'>Add songs</a></li>
+            <li><a href='/playlist'>Playlist</a></li>
+            <li><a class='current' href='/songs'>Add songs</a></li>
         </ul>
     </nav>
-    <form action="/playlist" method="POST">
+    <form action="/songs" method="POST">
         <div class="form-card">
             <label for='songName'>Song name</label>
             <input type='text' name='songName'>
