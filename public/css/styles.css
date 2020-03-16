@@ -6,7 +6,40 @@
     border: 0;
 }
 
+/* Font Face */
+
+@import url(//db.onlinewebfonts.com/c/25a1e83fae9330ddaffeba43da2dd762?family=Intro+Inline);
+
+@font-face {
+    font-family: "Intro Inline";
+    src: url("//db.onlinewebfonts.com/t/25a1e83fae9330ddaffeba43da2dd762.eot");
+    src: url("//db.onlinewebfonts.com/t/25a1e83fae9330ddaffeba43da2dd762.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/25a1e83fae9330ddaffeba43da2dd762.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/25a1e83fae9330ddaffeba43da2dd762.woff") format("woff"), url("//db.onlinewebfonts.com/t/25a1e83fae9330ddaffeba43da2dd762.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/25a1e83fae9330ddaffeba43da2dd762.svg#Intro Inline") format("svg");
+}
+
+/* Body */
+
+body {
+    background-color: #F8F8F8;
+}
+
 /* Navigation */
+
+header {
+    background: #FFFFFF;
+    height: 80px;
+    box-shadow: 0 2px 5px -2px gray;
+}
+
+.navigation {
+    padding-top: 1.2rem;
+    padding-left: 1rem;
+}
+
+.navigation ul {
+    display: flex;
+    list-style: none;
+    2 flex-direction: row;
+}
 
 .profile a {
     text-decoration: none;
@@ -14,10 +47,19 @@
     font-size: 2.5rem;
 }
 
+.home {
+    margin-left: 3.7rem;
+}
+
 .home a {
     text-decoration: none;
-    font-size: 22px;
+    font-size: 29px;
     color: #50AA49;
+    font-family: 'Intro Inline';
+}
+
+.home div {
+    margin-top: 9px;
 }
 
 /* Like and dislike navigation */
