@@ -72,6 +72,13 @@ app.get('/', (req, res) => {
     });
 });
 
+// Routing profile 
+app.get('/profile', (req, res) => {
+    res.render('profile', {
+        title: 'Profile settings'
+    });
+});
+
 // Routing view playlist user {
 app.get('/view-playlist', (req, res) => {
     res.render('view-playlist', {
