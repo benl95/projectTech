@@ -75,17 +75,6 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-// Schema 
-const Schema = mongoose.Schema;
-const PlaylistSchema = new Schema({
-    song: String,
-    artist: String
-});
-
-// Model 
-const PlayList = mongoose.model('PlayList', PlaylistSchema)
-
-
 // Static folders 
 app.use(express.static(path.join(__dirname, '/public')));
 
@@ -124,14 +113,23 @@ app.get('/songs', (req, res) => {
     });
 });
 
-const addSong = new PlayList;
+// Schema 
+const Schema = new mongoose.Schema({
+    song: String,
+    artist: String
+});
 
+// Model 
+const PlayList = mongoose.model('PlayList', Schema)
+
+
+// Routing songs and posting data to MongoDB
 app.post('/songs', (req, res) => {
-    new PlayList({
+    const new_PlayList = new PlayList({
         song: req.body.songName,
         artist: req.body.artistName
     });
-    addSong.save((error) => {
+    new_PlayList.save((error) => {
         if (error) {
             console.log('There is an error');
         } else {
