@@ -85,22 +85,6 @@ const PlaylistSchema = new Schema({
 // Model 
 const PlayList = mongoose.model('PlayList', PlaylistSchema)
 
-// Saving data to MongoDB
-const data = {
-    song: 'Back In Black',
-    artist: 'AC/DC'
-};
-
-const addSong = new PlayList(data);
-
-addSong.save((error) => {
-    if (error) {
-        console.log('There is an error');
-    } else {
-        console.log('Songs have been successfully added');
-    }
-});
-
 
 // Static folders 
 app.use(express.static(path.join(__dirname, '/public')));
@@ -140,11 +124,19 @@ app.get('/songs', (req, res) => {
     });
 });
 
-// POST method songs
+const addSong = new PlayList;
+
 app.post('/songs', (req, res) => {
-    console.log(req.body);
-    res.render('songs-added', {
-        data: req.body
+    new PlayList({
+        song: req.body.songName,
+        artist: req.body.artistName
+    });
+    addSong.save((error) => {
+        if (error) {
+            console.log('There is an error');
+        } else {
+            console.log('Songs have been successfully added');
+        }
     });
 });
 
