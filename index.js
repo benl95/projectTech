@@ -11,7 +11,9 @@ const mongoose = require('mongoose');
 
 
 // Mongoose connection setup
-mongoose.connect('mongodb://localhost/playlist', {
+const uri = 'mongodb+srv://admin:' + process.env.DB_PASS + '@projecttech-a3phf.mongodb.net/test'
+
+mongoose.connect(uri || 'mongodb://localhost/playlist', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -72,6 +74,32 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(bodyParser.json());
+
+// Schema 
+const Schema = mongoose.Schema;
+const PlaylistSchema = new Schema({
+    song: String,
+    artist: String
+});
+
+// Model 
+const PlayList = mongoose.model('PlayList', PlaylistSchema)
+
+// Saving data to MongoDB
+const data = {
+    song: 'Back In Black',
+    artist: 'AC/DC'
+};
+
+const addSong = new PlayList(data);
+
+addSong.save((error) => {
+    if (error) {
+        console.log('There is an error');
+    } else {
+        console.log('Songs have been successfully added');
+    }
+});
 
 
 // Static folders 
