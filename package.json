@@ -4,8 +4,6 @@
   "description": "feature voor de dating app voor project tech",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
     "start": "node index",
     "dev": "nodemon index"
   },
