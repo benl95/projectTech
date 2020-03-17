@@ -7,6 +7,18 @@ const {
     MongoClient
 } = require('mongodb');
 require('dotenv').config()
+const mongoose = require('mongoose');
+
+
+// Mongoose connection setup
+mongoose.connect('mongodb://localhost/playlist', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+mongoose.connection.on('connected', () => {
+    console.log('Mongoose is connected');
+});
 
 // MongoDB connection setup
 async function main() {
