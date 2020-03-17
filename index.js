@@ -99,15 +99,8 @@ app.get('/view-playlist', (req, res) => {
     });
 });
 
-// Routing playlist 
-app.get('/playlist', (req, res) => {
-    res.render('playlist', {
-        title: 'Your playlist'
-    });
-});
-
 // Routing songs
-app.get('/songs', (req, res) => {
+app.get('/songs', function (req, res) {
     res.render('songs', {
         title: 'Add songs to your playlist'
     });
@@ -122,7 +115,6 @@ const Schema = new mongoose.Schema({
 // Model 
 const PlayList = mongoose.model('PlayList', Schema)
 
-
 // Routing songs and posting data to MongoDB
 app.post('/songs', (req, res) => {
     const new_PlayList = new PlayList({
@@ -131,10 +123,17 @@ app.post('/songs', (req, res) => {
     });
     new_PlayList.save((error) => {
         if (error) {
-            console.log('There is an error');
+            console.log('There was an error');
         } else {
             console.log('Songs have been successfully added');
         }
+    });
+});
+
+// Routing playlist
+app.get('/playlist', (req, res) => {
+    res.render('playlist', {
+        title: 'Your playlist'
     });
 });
 
