@@ -115,7 +115,7 @@ const Schema = new mongoose.Schema({
 // Model 
 const PlayList = mongoose.model('PlayList', Schema)
 
-// Routing songs and posting data to MongoDB
+// Posting music data to MongoDB
 app.post('/songs', (req, res) => {
     const new_PlayList = new PlayList({
         song: req.body.songName,
@@ -136,6 +136,15 @@ app.get('/playlist', (req, res) => {
         title: 'Your playlist'
     });
 });
+
+// app.get('/playlist', function (req, res) {
+//     PlayList.find({}, function (err, playlist) {
+//         if (err) return handleError(err);
+//         res.render('playlist', {
+//             title: 'Your playlist'
+//         })
+//     });
+// });
 
 // Routing mp3
 app.get('/mp3', (req, res) => {
