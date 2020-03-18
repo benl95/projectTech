@@ -9,7 +9,6 @@ const {
 require('dotenv').config()
 const mongoose = require('mongoose');
 
-
 // Mongoose connection setup
 const uri = 'mongodb+srv://admin:' + process.env.DB_PASS + '@projecttech-a3phf.mongodb.net/test'
 
@@ -145,12 +144,6 @@ app.get('/playlist', (req, res) => {
 //         })
 //     });
 // });
-
-// Routing mp3
-app.get('/mp3', (req, res) => {
-    res.sendFile(path.join(__dirname,
-        'public', 'sample.mp3'));
-});
 
 // Routing retrieving parameters
 app.get('/profile/:id', (req, res) => {
