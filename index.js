@@ -86,6 +86,8 @@ const Schema = new mongoose.Schema({
 // Model
 const PlayList = mongoose.model('PlayList', Schema)
 
+// Routing pages
+
 // Posting music data to MongoDB
 app.post('/songs', (req, res) => {
     const new_PlayList = new PlayList({
@@ -101,7 +103,16 @@ app.post('/songs', (req, res) => {
     });
 });
 
-// Routing pages
+// Get playlist data from DB and render it on HBS
+app.get('/playlist', (req, res) => {
+    PlayList.find({}, function (err, playlists, ) {
+        if (err) return handleError(err)
+        console.log(playlists);
+        res.render('playlist', {
+            playlists: playlists
+        })
+    })
+})
 
 // Routing index
 app.get('/', (req, res) => {
@@ -130,22 +141,6 @@ app.get('/songs', function (req, res) {
         title: 'Add songs to your playlist'
     });
 });
-
-// Routing playlist
-app.get('/playlist', (req, res) => {
-    res.render('playlist', {
-        title: 'Your playlist'
-    });
-});
-
-// app.get('/playlist', function (req, res) {
-//     PlayList.find({}, function (err, playlist) {
-//         if (err) return handleError(err);
-//         res.render('playlist', {
-//             title: 'Your playlist'
-//         })
-//     });
-// });
 
 // Routing retrieving parameters
 app.get('/profile/:id', (req, res) => {
