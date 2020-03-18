@@ -10,7 +10,7 @@ require('dotenv').config()
 const mongoose = require('mongoose');
 
 // Mongoose connection setup
-const uri = 'mongodb+srv://' + process.env.DB.USER + process.env.DB_PASS + '@projecttech-a3phf.mongodb.net/test'
+const uri = 'mongodb+srv://admin:' + process.env.DB_PASS + '@projecttech-a3phf.mongodb.net/test'
 
 mongoose.connect(uri || 'mongodb://localhost/playlist', {
     useNewUrlParser: true,
