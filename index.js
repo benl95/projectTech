@@ -100,6 +100,7 @@ app.post('/songs', (req, res) => {
         } else {
             console.log('Songs have been successfully added');
         }
+        res.render('songs-added')
     });
 });
 
@@ -107,9 +108,9 @@ app.post('/songs', (req, res) => {
 app.get('/playlist', (req, res) => {
     PlayList.find({}, function (err, playlists, ) {
         if (err) return handleError(err)
-        console.log(playlists);
         res.render('playlist', {
-            playlists: playlists
+            playlists: playlists,
+            title: 'Your playlist'
         })
     })
 })

@@ -294,6 +294,13 @@ label {
     outline: none;
 }
 
+.feedback {
+    text-align: center;
+    font-family: -apple-system-headine, BlinkMacSystemFont, sans-serif;
+    color: black;
+    font-size: 16px;
+}
+
 /* Table styles */
 
 table {

@@ -1,4 +1,12 @@
-<body>
-    <h1>You successfully added songs to your playlist</h1>
-    <p>You added {{data.songName}} by {{data.artistName}} to your playlist</p>
+<body class='songs'>
+    {{> header}}
+    <nav class="playlistNav">
+        <ul>
+            <li><a href='/playlist'>Playlist</a></li>
+            <li><a class='current' href='/songs'>Add songs</a></li>
+        </ul>
+    </nav>
+    <div class="form-card">
+        <h1 class='feedback'>Songs have been added to your playlist!</h1>
+    </div>
 </body>
