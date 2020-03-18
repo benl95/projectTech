@@ -9,6 +9,10 @@ _**When** I see someones profile **I want to** see if we listen to the same kind
 For my feature users can add songs to their playlist with a form and these songs will be displayed on their playlist. 
 When searching for matches users can look into each other's and the songs that match are highlighted in green. 
 
+## Database diagram
+
+![image](https://user-images.githubusercontent.com/43675725/76950992-38663300-690b-11ea-9a9f-cb57920f6eb2.png)
+
 ## Installation
 
 ````
