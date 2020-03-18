@@ -77,6 +77,32 @@ app.use(bodyParser.json());
 // Static folders 
 app.use(express.static(path.join(__dirname, '/public')));
 
+// Mongoose Schema 
+const Schema = new mongoose.Schema({
+    song: String,
+    artist: String
+});
+
+// Model
+const PlayList = mongoose.model('PlayList', Schema)
+
+// Posting music data to MongoDB
+app.post('/songs', (req, res) => {
+    const new_PlayList = new PlayList({
+        song: req.body.songName,
+        artist: req.body.artistName
+    });
+    new_PlayList.save((error) => {
+        if (error) {
+            console.log('There was an error');
+        } else {
+            console.log('Songs have been successfully added');
+        }
+    });
+});
+
+// Routing pages
+
 // Routing index
 app.get('/', (req, res) => {
     res.render('index', {
@@ -102,30 +128,6 @@ app.get('/view-playlist', (req, res) => {
 app.get('/songs', function (req, res) {
     res.render('songs', {
         title: 'Add songs to your playlist'
-    });
-});
-
-// Schema 
-const Schema = new mongoose.Schema({
-    song: String,
-    artist: String
-});
-
-// Model 
-const PlayList = mongoose.model('PlayList', Schema)
-
-// Posting music data to MongoDB
-app.post('/songs', (req, res) => {
-    const new_PlayList = new PlayList({
-        song: req.body.songName,
-        artist: req.body.artistName
-    });
-    new_PlayList.save((error) => {
-        if (error) {
-            console.log('There was an error');
-        } else {
-            console.log('Songs have been successfully added');
-        }
     });
 });
 
