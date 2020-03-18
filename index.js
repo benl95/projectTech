@@ -86,8 +86,6 @@ const Schema = new mongoose.Schema({
 // Model
 const PlayList = mongoose.model('PlayList', Schema)
 
-// Routing pages
-
 // Posting music data to MongoDB
 app.post('/songs', (req, res) => {
     const new_PlayList = new PlayList({
@@ -104,7 +102,9 @@ app.post('/songs', (req, res) => {
     });
 });
 
-// Get playlist data from DB and render it on HBS
+// Routing pages
+
+// Get playlist data from DB and render it to HBS
 app.get('/playlist', (req, res) => {
     PlayList.find({}, function (err, playlists, ) {
         if (err) return handleError(err)
