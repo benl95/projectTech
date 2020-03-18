@@ -24,10 +24,6 @@ npm install
 node index
 ```
 
-## Packages
-
-
-
 ## License
 
 MIT
