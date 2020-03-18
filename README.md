@@ -15,6 +15,8 @@ When searching for matches users can look into each other's playlist and and see
 
 ## Installation
 
+### Cloning repo
+
 ````
 git clone https://github.com/benl95/projectTech.git
 ````
