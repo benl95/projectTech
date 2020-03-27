@@ -102,19 +102,25 @@ app.post('/songs', (req, res) => {
     });
 });
 
-// Update song
-
+// Update song/artist
 app.post('/update', (req, res) => {
-    PlayList.collection('playlists').findOneAndUpdate({
+    PlayList.findOneAndUpdate({
         song: req.body.songName,
         artist: req.body.artistName
     }, {
         $set: {
-            song: req.body.newSongName
-        },
-        $set: {
+            song: req.body.newSongName,
             artist: req.body.newArtistName
         }
+    }, {
+        new: true
+    }, (err, doc) => {
+        if (err) {
+            console.log('Something went wrong')
+        } else {
+            console.log('Successfully updated')
+        }
+        console.log(doc)
     })
 })
 
