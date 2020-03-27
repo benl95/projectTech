@@ -1,0 +1,22 @@
+<body class='songs'>
+    {{> header}}
+    <nav class="playlistNav">
+        <ul>
+            <li><a class='current' href='/playlist'>Playlist</a></li>
+            <li><a href='/songs'>Add songs</a></li>
+        </ul>
+    </nav>
+    <form action="/update" method="post">
+        <div class="form-card">
+            <label for='songName'>Song name</label>
+            <input type='text' name='songName'>
+            <label for='artistName'>Artist name</label>
+            <input type='text' name='artistName'>
+            <label for='newSongName'>New song name</label>
+            <input type='text' name='newSongName'>
+            <label for='newArtistName'>New artist name</label>
+            <input type='text' name='newArtistName'>
+            <input type='submit' value="Update song">
+        </div>
+    </form>
+</body>

@@ -102,6 +102,22 @@ app.post('/songs', (req, res) => {
     });
 });
 
+// Update song
+
+app.post('/update', (req, res) => {
+    PlayList.collection('playlists').findOneAndUpdate({
+        song: req.body.songName,
+        artist: req.body.artistName
+    }, {
+        $set: {
+            song: req.body.newSongName
+        },
+        $set: {
+            artist: req.body.newArtistName
+        }
+    })
+})
+
 // Routing pages
 
 // Get playlist data from DB and render it to HBS
@@ -140,6 +156,13 @@ app.get('/view-playlist', (req, res) => {
 app.get('/songs', function (req, res) {
     res.render('songs', {
         title: 'Add songs to your playlist'
+    });
+});
+
+// Routing update
+app.get('/update', (req, res) => {
+    res.render('update', {
+        title: 'Update playlist'
     });
 });
 
