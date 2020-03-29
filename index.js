@@ -86,43 +86,21 @@ const Schema = new mongoose.Schema({
 // Model
 const PlayList = mongoose.model('PlayList', Schema)
 
-// // Posting music data to MongoDB
-// app.post('/songs', (req, res) => {
-//     const new_PlayList = new PlayList({
-//         song: req.body.songName,
-//         artist: req.body.artistName
-//     });
-//     new_PlayList.save((error) => {
-//         if (error) {
-//             console.log('There was an error');
-//         } else {
-//             console.log('Songs have been successfully added');
-//         }
-//         res.render('songs-added')
-//     });
-// });
-
-// // Update song/artist
-// app.post('/update', (req, res) => {
-//     PlayList.findOneAndUpdate({
-//         song: req.body.songName,
-//         artist: req.body.artistName
-//     }, {
-//         $set: {
-//             song: req.body.newSongName,
-//             artist: req.body.newArtistName
-//         }
-//     }, {
-//         new: true
-//     }, (err, doc) => {
-//         if (err) {
-//             console.log('Something went wrong')
-//         } else {
-//             console.log('Successfully updated')
-//         }
-//         console.log(doc)
-//     })
-// })
+// Posting music data to MongoDB
+app.post('/songs', (req, res) => {
+    const new_PlayList = new PlayList({
+        song: req.body.songName,
+        artist: req.body.artistName
+    });
+    new_PlayList.save((error) => {
+        if (error) {
+            console.log('There was an error');
+        } else {
+            console.log('Songs have been successfully added');
+        }
+        res.render('songs-added')
+    });
+});
 
 // Routing pages
 
