@@ -102,41 +102,6 @@ app.post('/songs', (req, res) => {
     });
 });
 
-// Update song/artist
-app.post('/update', (req, res) => {
-    PlayList.findOneAndUpdate({
-        song: req.body.songName,
-        artist: req.body.artistName
-    }, {
-        $set: {
-            song: req.body.newSongName,
-            artist: req.body.newArtistName
-        }
-    }, {
-        new: true
-    }, (err, doc) => {
-        if (err) {
-            console.log('Something went wrong')
-        } else {
-            console.log('Successfully updated')
-        }
-        console.log(doc)
-    })
-})
-
-// Routing pages
-
-// Get playlist data from DB and render it to HBS
-app.get('/playlist', (req, res) => {
-    PlayList.find({}, function (err, playlists, ) {
-        if (err) return handleError(err)
-        res.render('playlist', {
-            playlists: playlists,
-            title: 'Your playlist'
-        })
-    })
-})
-
 // Routing index
 app.get('/', (req, res) => {
     res.render('index', {
