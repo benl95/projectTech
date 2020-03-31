@@ -180,3 +180,59 @@ app.get('/profile/:id', (req, res) => {
 app.listen(8080, () => {
     console.log('Server is starting on port', 8080);
 });
+
+// Team feature
+
+// Routing
+app.get('/teamfeature', (req, res) => {
+    res.render('teamfeature', {
+        title: 'team feature'
+    });
+});
+
+app.get('/top5', (req, res) => {
+    res.render('top5', {
+        title: 'team feature'
+    });
+});
+
+// Mongoose Schema 
+// const favorite = new mongoose.Schema({
+//     song1: String,
+//     artist1: String,
+//     song2: String,
+//     artist2: String,
+// });
+
+// Model
+// const top5 = mongoose.model('top5', favorite)
+
+// app.post('/teamfeature', (req, res) => {
+//     const new_top5 = new top5({
+//         song1: req.body.songName,
+//         artist1: req.body.artistName,
+//         song2: req.body.songName2,
+//         artist2: req.body.artistName2
+//     });
+//     new_top5.save((error) => {
+//         if (error) {
+//             console.log('There was an error');
+//         } else {
+//             console.log('Songs have been successfully added');
+//         }
+//         res.render('top5', {
+//             top5: new_top5
+//         })
+//     });
+// });
+
+// Get playlist data from DB and render it to HBS
+// app.get('/top5', (req, res) => {
+//     top5.find({}, function (err, top5, ) {
+//         if (err) return handleError(err)
+//         res.render('top5', {
+//             top5: top5,
+//             title: 'team feature'
+//         })
+//     })
+// })
