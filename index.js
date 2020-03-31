@@ -102,6 +102,28 @@ app.post('/songs', (req, res) => {
     });
 });
 
+// Update song from playlist in database 
+app.post('/update', (req, res) => {
+    PlayList.findOneAndUpdate({
+        song: req.body.songName,
+        artist: req.body.artistName
+    }, {
+        $set: {
+            song: req.body.newSongName,
+            artist: req.body.newArtistName
+        }
+    }, {
+        new: true
+    }, (err, doc) => {
+        if (err) {
+            console.log('Something went wrong')
+        } else {
+            console.log('Successfully updated')
+        }
+        console.log(doc)
+    })
+})
+
 // Routing pages
 
 // Get playlist data from DB and render it to HBS
