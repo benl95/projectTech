@@ -150,11 +150,6 @@ app.get('/update', (req, res) => {
     });
 });
 
-// Routing retrieving parameters
-app.get('/profile/:id', (req, res) => {
-    res.send('You requested to see the profile of ' + req.params.id);
-});
-
 app.listen(8080, () => {
     console.log('Server is starting on port', 8080);
 });
