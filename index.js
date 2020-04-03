@@ -10,10 +10,9 @@ require('dotenv').config()
 const mongoose = require('mongoose');
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session);
+const expressValidator = require('express-validator');
+const PORT = 8080
 
-const {
-    PORT = 8080
-} = process.env
 
 // Mongoose connection setup
 const uri = 'mongodb+srv://admin:' + process.env.DB_PASS + '@projecttech-a3phf.mongodb.net/test'
@@ -69,6 +68,9 @@ app.use(session({
     saveUninitialized: false,
     resave: false
 }))
+
+// Validator setup
+app.use(expressValidator())
 
 // Mongoose schema playlist
 const favourite = new mongoose.Schema({
