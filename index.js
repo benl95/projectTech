@@ -66,7 +66,6 @@ app.use(session({
     secret: 'secret-key',
     saveUninitialized: false,
     resave: false
-    store:
 }))
 
 // Validator setup
@@ -84,19 +83,30 @@ const PlayList = mongoose.model('PlayList', favourite)
 // Posting
 // Posting music data to MongoDB
 app.post('/songs', (req, res) => {
-    const new_PlayList = new PlayList({
-        song: req.body.songName,
-        artist: req.body.artistName,
-
-    });
-    new_PlayList.save((error) => {
-        if (error) {
-            console.log('There was an error');
-        } else {
-            console.log('Songs have been successfully added');
-        }
-        res.render('songs-added')
-    });
+    // Check validity input
+    req.check('songName', 'Fill in song name').notEmpty()
+    req.check('artistName', 'Fill in artist name').notEmpty()
+    const errors = req.validationErrors()
+    if (errors) {
+        console.log(errors)
+        req.session.errors = errors
+        req.session.success = false
+        res.redirect('/songs')
+    } else {
+        req.session.success = true
+        const new_PlayList = new PlayList({
+            song: req.body.songName,
+            artist: req.body.artistName,
+        });
+        new_PlayList.save((error) => {
+            if (error) {
+                console.log('There was an error');
+            } else {
+                console.log('Songs have been successfully added');
+            }
+            res.render('songs-added')
+        });
+    }
 });
 
 // Update song from playlist in database 
@@ -155,10 +165,13 @@ app.get('/view-playlist', (req, res) => {
 });
 
 // Routing songs
-app.get('/songs', (req, res) => {
+app.get('/songs', (req, res, next) => {
     res.render('songs', {
-        title: 'Add songs to your playlist'
+        title: 'Add songs to your playlist',
+        success: req.session.success,
+        errors: req.session.errors
     });
+    req.session.errors = null
 });
 
 // Routing update
