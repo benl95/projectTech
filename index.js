@@ -66,6 +66,7 @@ app.use(session({
     secret: 'secret-key',
     saveUninitialized: false,
     resave: false
+    store:
 }))
 
 // Validator setup
@@ -129,13 +130,6 @@ app.get('/playlist', (req, res) => {
             playlists: playlists,
             title: 'Your playlist'
         })
-    })
-})
-
-// Routing login
-app.get('/login', (req, res) => {
-    res.render('login', {
-        title: 'Log in'
     })
 })
 
