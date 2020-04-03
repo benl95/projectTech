@@ -91,7 +91,7 @@ app.post('/songs', (req, res) => {
         console.log(errors)
         req.session.errors = errors
         req.session.success = false
-        res.redirect('/songs')
+        res.redirect('songs')
     } else {
         req.session.success = true
         const new_PlayList = new PlayList({
@@ -104,13 +104,13 @@ app.post('/songs', (req, res) => {
             } else {
                 console.log('Songs have been successfully added');
             }
-            res.render('songs-added')
+            res.redirect('songs')
         });
     }
 });
 
 // Update song from playlist in database 
-app.post('/update', (req, res) => {
+app.post('/update', (req, res, next) => {
     PlayList.findOneAndUpdate({
         song: req.body.songName,
         artist: req.body.artistName
@@ -165,13 +165,14 @@ app.get('/view-playlist', (req, res) => {
 });
 
 // Routing songs
-app.get('/songs', (req, res, next) => {
+app.get('/songs', (req, res) => {
     res.render('songs', {
         title: 'Add songs to your playlist',
         success: req.session.success,
         errors: req.session.errors
     });
     req.session.errors = null
+    req.session.success = null
 });
 
 // Routing update

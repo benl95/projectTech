@@ -302,6 +302,33 @@ label {
     font-size: 16px;
 }
 
+/* Errors  form */
+
+.errors {
+    margin: 1rem 1rem 0 1rem;
+}
+
+.errors li {
+    background-color: red;
+    list-style: none;
+}
+
+/* Success form */
+
+.success h2 {
+    margin: 1.5rem 0 0 1rem;
+    text-align: left;
+    color: white;
+    font-size: 12px;
+}
+
+.success {
+    background-color: rgba(29, 185, 84, 1);
+    margin: 0 1rem 0 1rem;
+    padding: 0 0 1rem 0;
+    border-radius: 3px;
+}
+
 /* Table styles */
 
 table {
