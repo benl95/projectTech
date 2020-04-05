@@ -15,7 +15,7 @@ const PORT = 8080
 
 // Mongoose connection setup
 const uri = 'mongodb+srv://admin:' + process.env.DB_PASS + '@projecttech-a3phf.mongodb.net/test'
-mongoose.connect(uri || 'mongodb://localhost/playlist', {
+mongoose.connect(uri || 'mongodb://localhost/playlists', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -133,7 +133,6 @@ app.post('/update', (req, res, next) => {
             } else {
                 console.log('Song successfully updated')
             }
-            console.log(doc)
             res.redirect('update')
         })
     }
