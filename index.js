@@ -111,24 +111,32 @@ app.post('/songs', (req, res) => {
 
 // Update song from playlist in database 
 app.post('/update', (req, res, next) => {
-    PlayList.findOneAndUpdate({
-        song: req.body.songName,
-        artist: req.body.artistName
-    }, {
-        $set: {
+    // Check validity input
+    req.check('newSongName', 'Fill in new song name').notEmpty()
+    req.check('newArtistName', 'Fill in new artist name').notEmpty()
+    const errors = req.validationErrors()
+    if (errors) {
+        console.log(errors)
+        req.session.errors = errors
+        req.session.success = false
+        res.redirect('update')
+    } else {
+        req.session.success = true
+        PlayList.updateOne({
+            song: req.body.currentSong
+        }, {
             song: req.body.newSongName,
             artist: req.body.newArtistName
-        }
-    }, {
-        new: true
-    }, (err, doc) => {
-        if (err) {
-            console.log('Something went wrong')
-        } else {
-            console.log('Successfully updated')
-        }
-        console.log(doc)
-    })
+        }, (err, doc) => {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log('Song successfully updated')
+            }
+            console.log(doc)
+            res.redirect('update')
+        })
+    }
 })
 
 // Routing 
@@ -177,10 +185,18 @@ app.get('/songs', (req, res) => {
 
 // Routing update
 app.get('/update', (req, res) => {
-    res.render('update', {
-        title: 'Update playlist'
-    });
-});
+    PlayList.find({}, function (err, playlists) {
+        if (err) return handleError(err)
+        res.render('update', {
+            playlists: playlists,
+            title: 'Edit song',
+            success: req.session.success,
+            errors: req.session.errors
+        })
+        req.session.errors = null
+        req.session.success = null
+    })
+})
 
 app.listen(PORT, () => {
     console.log('Server is starting on port', PORT);

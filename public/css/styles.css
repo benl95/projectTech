@@ -463,3 +463,27 @@ h2 {
     text-decoration: none;
     color: black;
 }
+
+/* Edit song */
+
+#currentSong {
+    width: 20rem;
+    height: 3rem;
+    background-color: white;
+    align-self: center;
+    border-radius: 25px;
+    border: 1px solid #D1D1D1;
+    font-family: -apple-system-headine, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    text-align: center;
+    padding: 0 0 0 1rem;
+}
+
+.form-card h2 {
+    font-size: 20px;
+}
