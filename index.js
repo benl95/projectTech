@@ -10,10 +10,8 @@ require('dotenv').config()
 const mongoose = require('mongoose');
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session);
-
-const {
-    PORT = 8080
-} = process.env
+const expressValidator = require('express-validator')
+const PORT = 8080
 
 // Mongoose connection setup
 const uri = 'mongodb+srv://admin:' + process.env.DB_PASS + '@projecttech-a3phf.mongodb.net/test'
@@ -70,6 +68,9 @@ app.use(session({
     resave: false
 }))
 
+// Validator setup
+app.use(expressValidator())
+
 // Mongoose schema playlist
 const favourite = new mongoose.Schema({
     song: String,
@@ -82,41 +83,60 @@ const PlayList = mongoose.model('PlayList', favourite)
 // Posting
 // Posting music data to MongoDB
 app.post('/songs', (req, res) => {
-    const new_PlayList = new PlayList({
-        song: req.body.songName,
-        artist: req.body.artistName,
-
-    });
-    new_PlayList.save((error) => {
-        if (error) {
-            console.log('There was an error');
-        } else {
-            console.log('Songs have been successfully added');
-        }
-        res.render('songs-added')
-    });
+    // Check validity input
+    req.check('songName', 'Fill in song name').notEmpty()
+    req.check('artistName', 'Fill in artist name').notEmpty()
+    const errors = req.validationErrors()
+    if (errors) {
+        console.log(errors)
+        req.session.errors = errors
+        req.session.success = false
+        res.redirect('songs')
+    } else {
+        req.session.success = true
+        const new_PlayList = new PlayList({
+            song: req.body.songName,
+            artist: req.body.artistName,
+        });
+        new_PlayList.save((error) => {
+            if (error) {
+                console.log('There was an error');
+            } else {
+                console.log('Songs have been successfully added');
+            }
+            res.redirect('songs')
+        });
+    }
 });
 
 // Update song from playlist in database 
-app.post('/update', (req, res) => {
-    PlayList.findOneAndUpdate({
-        song: req.body.songName,
-        artist: req.body.artistName
-    }, {
-        $set: {
+app.post('/update', (req, res, next) => {
+    // Check validity input
+    req.check('newSongName', 'Fill in new song name').notEmpty()
+    req.check('newArtistName', 'Fill in new artist name').notEmpty()
+    const errors = req.validationErrors()
+    if (errors) {
+        console.log(errors)
+        req.session.errors = errors
+        req.session.success = false
+        res.redirect('update')
+    } else {
+        req.session.success = true
+        PlayList.updateOne({
+            song: req.body.currentSong
+        }, {
             song: req.body.newSongName,
             artist: req.body.newArtistName
-        }
-    }, {
-        new: true
-    }, (err, doc) => {
-        if (err) {
-            console.log('Something went wrong')
-        } else {
-            console.log('Successfully updated')
-        }
-        console.log(doc)
-    })
+        }, (err, doc) => {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log('Song successfully updated')
+            }
+            console.log(doc)
+            res.redirect('update')
+        })
+    }
 })
 
 // Routing 
@@ -128,13 +148,6 @@ app.get('/playlist', (req, res) => {
             playlists: playlists,
             title: 'Your playlist'
         })
-    })
-})
-
-// Routing login
-app.get('/login', (req, res) => {
-    res.render('login', {
-        title: 'Log in'
     })
 })
 
@@ -162,16 +175,28 @@ app.get('/view-playlist', (req, res) => {
 // Routing songs
 app.get('/songs', (req, res) => {
     res.render('songs', {
-        title: 'Add songs to your playlist'
+        title: 'Add songs to your playlist',
+        success: req.session.success,
+        errors: req.session.errors
     });
+    req.session.errors = null
+    req.session.success = null
 });
 
 // Routing update
 app.get('/update', (req, res) => {
-    res.render('update', {
-        title: 'Update playlist'
-    });
-});
+    PlayList.find({}, function (err, playlists) {
+        if (err) return handleError(err)
+        res.render('update', {
+            playlists: playlists,
+            title: 'Edit song',
+            success: req.session.success,
+            errors: req.session.errors
+        })
+        req.session.errors = null
+        req.session.success = null
+    })
+})
 
 app.listen(PORT, () => {
     console.log('Server is starting on port', PORT);

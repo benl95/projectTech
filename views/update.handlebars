@@ -6,12 +6,19 @@
             <li><a href='/songs'>Add songs</a></li>
         </ul>
     </nav>
+    {{#if success}}
+    <section class='success'>
+        <h2>Song has been updated</h2>
+    </section>
     <form action="/update" method="post" name='update'>
         <div class="form-card">
-            <label for='songName'>Song name</label>
-            <input type='text' name='songName'>
-            <label for='artistName'>Artist name</label>
-            <input type='text' name='artistName'>
+            <label for='current-song'>Current song</label>
+            <select id='currentSong' name='currentSong'>
+                {{#each playlists}}
+                <option class='songInfo'>{{song}}</option>
+                {{/each}}
+            </select>
+            <h2>Change to</h2>
             <label for='newSongName'>New song name</label>
             <input type='text' name='newSongName'>
             <label for='newArtistName'>New artist name</label>
@@ -19,4 +26,31 @@
             <input type='submit' value="Update song">
         </div>
     </form>
+    {{ else }}
+    {{#if errors}}
+    <section class='errors'>
+        <ul>
+            {{#each errors}}
+            <li>{{this.msg}}</li>
+            {{/each}}
+        </ul>
+    </section>
+    {{/if}}
+    <form action="/update" method="post" name='update'>
+        <div class="form-card">
+            <label for='current-song'>Current song</label>
+            <select id='currentSong' name='currentSong'>
+                {{#each playlists}}
+                <option class='songInfo'>{{song}}</option>
+                {{/each}}
+            </select>
+            <h2>Change to</h2>
+            <label for='newSongName'>New song name</label>
+            <input type='text' name='newSongName'>
+            <label for='newArtistName'>New artist name</label>
+            <input type='text' name='newArtistName'>
+            <input type='submit' value="Update song">
+        </div>
+    </form>
+    {{/if}}
 </body>
