@@ -6,10 +6,6 @@
             <li><a class='current' href='/songs'>Add songs</a></li>
         </ul>
     </nav>
-    {{#if success}}
-    <section class='success'>
-        <h2>Song has been added to your playlist</h2>
-    </section>
     <form action="/songs" method="post">
         <div class="form-card">
             <label for='songName'>Song name</label>
@@ -20,25 +16,4 @@
             <input type='submit' value="Add songs">
         </div>
     </form>
-    {{ else }}
-    {{#if errors}}
-    <section class='errors'>
-        <ul>
-            {{#each errors}}
-            <li>{{this.msg}}</li>
-            {{/each}}
-        </ul>
-    </section>
-    {{/if}}
-    <form action="/songs" method="post">
-        <div class="form-card">
-            <label for='songName'>Song name</label>
-            <input type='text' name='songName'>
-            <label for='artistName'>Artist name</label>
-            <input type='text' name='artistName'>
-            <input type='button' value='&#43;' id='add'>
-            <input type='submit' value="Add songs">
-        </div>
-    </form>
-    {{/if}}
 </body>
